@@ -1,0 +1,51 @@
+[
+  {
+    "n_models": 2,
+    "without_sharing": {
+      "n_models": 2,
+      "total_memory_mb": 489.3515625,
+      "memory_per_model_mb": 244.67578125,
+      "memory_history": [
+        827.3671875,
+        1166.91796875,
+        1316.71875
+      ]
+    },
+    "with_sharing": {
+      "n_models": 2,
+      "total_memory_mb": 147.12576293945312,
+      "base_memory_mb": 145.5703125,
+      "adapter_file_size_mb": 0.7777252197265625,
+      "adapter_memory_total_mb": 1.555450439453125,
+      "adapter_memory_per_mb": 0.7777252197265625,
+      "single_adapter_overhead_mb": 0.0
+    },
+    "savings_mb": 342.2257995605469,
+    "savings_percentage": 69.9345472224883
+  },
+  {
+    "n_models": 3,
+    "without_sharing": {
+      "n_models": 3,
+      "total_memory_mb": 356.80859375,
+      "memory_per_model_mb": 118.93619791666667,
+      "memory_history": [
+        1093.15625,
+        1236.51953125,
+        1340.6875,
+        1449.96484375
+      ]
+    },
+    "with_sharing": {
+      "n_models": 3,
+      "total_memory_mb": 91.65348815917969,
+      "base_memory_mb": 89.3203125,
+      "adapter_file_size_mb": 0.7777252197265625,
+      "adapter_memory_total_mb": 2.3331756591796875,
+      "adapter_memory_per_mb": 0.7777252197265625,
+      "single_adapter_overhead_mb": 0.0
+    },
+    "savings_mb": 265.1551055908203,
+    "savings_percentage": 74.31298187190042
+  }
+]

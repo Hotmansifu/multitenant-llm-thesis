@@ -1,0 +1,138 @@
+{
+  "base_results": [
+    {
+      "question": "What is the capital of England?",
+      "answer": "What is the capital of England?\n\nThe first time, the world's largest, the world's largest economy is the most important economy, and the most important, the most of the world's largest economy.\n\nThe first-term economy is the most important time, but",
+      "expected_keyword": "London",
+      "contains_expected": true
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "answer": "Who wrote Romeo and Juliet?\nThe most important question is that the most important thing is that the most of the most important thing.\nBut it\u2019s not a good thing.\nBut it\u2019s not just like that.\nThe question is that it\ufffd",
+      "expected_keyword": "Shakespeare",
+      "contains_expected": false
+    },
+    {
+      "question": "What is 2 + 2?",
+      "answer": "What is 2 + 2?\n\nThe last year, the first half of the game, the team's first, and the team's first, the team, and the team's first-time football.\n\nThat's just got the game, but it's a game",
+      "expected_keyword": "4",
+      "contains_expected": false
+    },
+    {
+      "question": "What color is the sky?",
+      "answer": "What color is the sky?\nAnd, but it\u2019s a good job.\nYou\u2019re going to be able to get the time, but it\u2019s a good thing.\nI\u2019m going to go to say it\u2019s a",
+      "expected_keyword": "blue",
+      "contains_expected": false
+    },
+    {
+      "question": "What is the largest ocean on Earth?",
+      "answer": "What is the largest ocean on Earth?\nIt's a good thing that's a very good.\nThere's a lot of people who don't have to do it.\n\nThe second-year-old and I think it's a little bit of the way.\nAnd it",
+      "expected_keyword": "Pacific",
+      "contains_expected": false
+    },
+    {
+      "question": "Who was the first president of the United States?",
+      "answer": "Who was the first president of the United States?\n\nThe United States has been a very high-year-year-old, but it was a good question.\n\nThe United States is a new business party in the United States.\nThe United States, the United States and the United",
+      "expected_keyword": "Washington",
+      "contains_expected": false
+    },
+    {
+      "question": "What is water made of?",
+      "answer": "What is water made of?\n\nThe first time, the first time, the first time, the first time, the first time, it was a good time.\n\nIn the first time, the first time, the first time, the first time, the first time",
+      "expected_keyword": "H2O",
+      "contains_expected": false
+    },
+    {
+      "question": "How many days are in a week?",
+      "answer": "How many days are in a week?\nThe first-year-old man was a shot in a car and a car.\nThe man was a man in the night and a man who was a man who had a man. He was a man who was a man. He was",
+      "expected_keyword": "7",
+      "contains_expected": false
+    },
+    {
+      "question": "What is the speed of light?",
+      "answer": "What is the speed of light?\n\nThe first time, the first time, the first time, the first time, and the first time, the first time, the first time, the first time.\n\nThe first time, the first time, the first time, the",
+      "expected_keyword": "299,792,458",
+      "contains_expected": false
+    },
+    {
+      "question": "What language is spoken in France?",
+      "answer": "What language is spoken in France?\n\nThe New York Times, the United States and the United States, which is also a national security program, has been a new, and a national security system that has been a new state-term economic system, and the United States, and",
+      "expected_keyword": "French",
+      "contains_expected": true
+    }
+  ],
+  "lora_results": [
+    {
+      "question": "What is the capital of England?",
+      "answer": "What is the capital of England?\n\nIn the end of the United States, the United States and the United States, the United States, the United States, and the United States, the United States, and the United States, and the United States, and the United States,",
+      "expected_keyword": "London",
+      "contains_expected": true
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "answer": "Who wrote Romeo and Juliet?\nIn the time, I was a lot of people who had been a lot of people who was a lot of people who had a lot of people who had been able to be a lot of people who had to do with a lot of people.",
+      "expected_keyword": "Shakespeare",
+      "contains_expected": false
+    },
+    {
+      "question": "What is 2 + 2?",
+      "answer": "What is 2 + 2?\n\nThe first time I\u2019ve been able to be able to see it.\n\nThe first time I was able to get a lot of the game that I\u2019ve got a lot of the game.\n\nThe first-",
+      "expected_keyword": "4",
+      "contains_expected": false
+    },
+    {
+      "question": "What color is the sky?",
+      "answer": "What color is the sky?\n\nThe first time, the first time, the second-year-old daughter was the first-old girl.\n\nThe first-old man was a friend, a man who was a man. He was a man in the first-",
+      "expected_keyword": "blue",
+      "contains_expected": false
+    },
+    {
+      "question": "What is the largest ocean on Earth?",
+      "answer": "What is the largest ocean on Earth?\nThe first-based version of the first time, the first-based game is a little bit of the first time.\nThis is the first-term, the most important value of the first-time, but it\u2019s the first",
+      "expected_keyword": "Pacific",
+      "contains_expected": false
+    },
+    {
+      "question": "Who was the first president of the United States?",
+      "answer": "Who was the first president of the United States?\n\nThe United States has been in the United States, and the United States.\n\nThe United States is the United States, the United States, and the United States, and the United States, and the United States, the United States,",
+      "expected_keyword": "Washington",
+      "contains_expected": false
+    },
+    {
+      "question": "What is water made of?",
+      "answer": "What is water made of?\n\nThe first time, the first time, the first time, the first time, the first time, the first time, the first time, was the first time.\n\nThe first time, the first time, the first time was the",
+      "expected_keyword": "H2O",
+      "contains_expected": false
+    },
+    {
+      "question": "How many days are in a week?",
+      "answer": "How many days are in a week?\n\nThe first time, the first year, the first year's first, the first-year-old daughter, and his first-old daughter, who was a woman who was a man with a car.\n\nThe two-year-",
+      "expected_keyword": "7",
+      "contains_expected": false
+    },
+    {
+      "question": "What is the speed of light?",
+      "answer": "What is the speed of light?\n\nThe first time, it\u2019s been a good thing.\n\nThe first time, the first time I\u2019ve got a great thing, and I\u2019d got a bit of my team.\n\nAnd the first",
+      "expected_keyword": "299,792,458",
+      "contains_expected": false
+    },
+    {
+      "question": "What language is spoken in France?",
+      "answer": "What language is spoken in France?\n\nThe US-based economy is a new world and the economy.\nThe United States is a new, and the most important market, and the economy is not a whole, but it is a long-term.\n\nThe US government",
+      "expected_keyword": "French",
+      "contains_expected": true
+    }
+  ],
+  "comparison": {
+    "n_questions": 10,
+    "base_correct": 2,
+    "base_accuracy": 20.0,
+    "lora_correct": 2,
+    "lora_accuracy": 20.0,
+    "forgetting_cases": [],
+    "n_forgetting": 0,
+    "improvement_cases": [],
+    "n_improvement": 0,
+    "accuracy_change": 0.0
+  }
+}
