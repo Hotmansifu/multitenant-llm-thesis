@@ -1,5 +1,5 @@
 import sys, os, time, mmap, torch, tiktoken
-pythonSCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 from model import GPTConfig, GPT
 from multiprocessing import Process, Pipe, set_start_method
