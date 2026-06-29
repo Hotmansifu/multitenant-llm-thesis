@@ -34,7 +34,7 @@ except ImportError:
     print("Missing: pip install phe"); sys.exit(1)
 
 # ── config ────────────────────────────────────────────────────────────────────
-CKPT       = "/home/sifu/nanoGPT/ckpt.pt"
+CKPT       = os.path.join(SCRIPT_DIR, "ckpt.pt")
 PORT       = 29878
 GEN        = 80
 TEMP       = 0.8
