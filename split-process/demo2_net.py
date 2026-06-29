@@ -38,7 +38,7 @@ def recv_tensor(sock, shape, dtype=torch.float32):
 
 def server_fn():
     import sys, socket, struct, torch
-    sys.path.insert(0, '/home/sifu/nanoGPT')
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     m, cfg = load_model()
     C = cfg.n_embd
     VOCAB = cfg.vocab_size
