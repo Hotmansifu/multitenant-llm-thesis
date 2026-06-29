@@ -25,7 +25,7 @@ def load_model():
 
 def server_fn(conn, shm_path, shm_size):
     import sys, mmap, torch
-    sys.path.insert(0, '/home/sifu/nanoGPT')
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     m, cfg = load_model()
     C = cfg.n_embd
     VOCAB = cfg.vocab_size
