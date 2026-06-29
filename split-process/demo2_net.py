@@ -37,7 +37,7 @@ def recv_tensor(sock, shape, dtype=torch.float32):
     return torch.frombuffer(bytearray(buf), dtype=dtype).reshape(shape).clone()
 
 def server_fn():
-    import sys, socket, struct, torch
+    import sys, os, socket, struct, torch
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     m, cfg = load_model()
     C = cfg.n_embd
