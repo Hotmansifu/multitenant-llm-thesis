@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -----------------------------------------------------------------------------------
 # File: finetune_lora.py
-# Project: "Multi-Tier Access Control for LLM Fine-Tuning"
+# Project: "Scalable and Secure Multi-Tenant LLM Deployment"
 # Purpose: Fine-tune GPT using LoRA (Low-Rank Adaptation) instead of full fine-tuning
 #
 # DIFFERENCES FROM FULL FINE-TUNING:
