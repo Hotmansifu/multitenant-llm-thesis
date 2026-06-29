@@ -24,7 +24,7 @@ def load_model():
     return m, cfg
 
 def server_fn(conn, shm_path, shm_size):
-    import sys, mmap, torch
+    import  os, sys, mmap, torch
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     m, cfg = load_model()
     C = cfg.n_embd
