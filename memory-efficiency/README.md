@@ -1,45 +1,70 @@
-# Memory Efficiency Experiments (RQ1 & RQ2)
+# memory-efficiency/ — RQ1 & RQ2
 
-Corresponds to **§3.1, §4.1, §4.2** of the thesis.
+Memory-efficient multi-tenant fine-tuning: comparing full fine-tuning, layer
+freezing, and LoRA, and measuring how the storage cost per tenant scales with
+model size.
 
-## Research Questions
+This folder builds on L. Hoxha's master thesis *In-Memory Fine-Tuning of LLMs
+via Encrypted Parameter Deltas* (Constructor University, 2025); inherited files
+keep her authorship headers. The multi-tenant LoRA evaluation and the
+size/scaling measurements are this thesis's contribution.
 
-- **RQ1:** Which fine-tuning approach consumes the least memory for multi-tenant inference at 30M parameters?
-- **RQ2:** Is the memory efficiency advantage preserved at 774M parameters?
+## What each script does
 
-## Environment
+**Fine-tuning methods**
+- `finetune_lora.py` — LoRA fine-tuning; trains only low-rank adapters, base
+  weights frozen. Produces the small per-tenant adapter measured in RQ2.
+- `finetune_freeze.py` — selective fine-tuning that freezes the bottom layers
+  (uses `layer_freezing.py`); has its own batch/eval helpers.
+- `layer_freezing.py` — helper that freezes the bottom N% of transformer layers
+  (`freeze_bottom_layers`, `print_freeze_summary`).
 
-- Ubuntu 22.04 (Linux 5.15.0)
-- 32-core Intel Haswell processor
-- 314 GB RAM
-- Python 3.8, PyTorch 2.4.1
-- Virtualized cloud instance
+**Size / memory measurements**
+- `full_finetune_774m_size.py` — full-fine-tuning delta size for the 774M model
+  (architecture-determined; the basis for the ~338.1 GB / 100-tenant figure).
+- `test_lora_memory_774m.py` — LoRA adapter memory at 774M (the per-tenant
+  scaling point); defines its own minimal nanoGPT-style model.
+- `validate_measurement_v2.py` — cross-checks the measurement method against the
+  known 30M full-delta reference (188.4 MB expected vs 189.0 MB measured, ~0.3%)
+  before extrapolating to 774M.
 
-## Files
+**Quality / sanity checks**
+- `check_catastrophic_forgetting.py` — checks whether a Chicago-trained LoRA
+  degrades general-knowledge answers (it did not, in the reported run). Writes
+  `forgetting_test_results.json`.
 
-| File | Description |
-|---|---|
-| `finetune_encrypt_memmap.py` | Full fine-tuning and layer freezing (75%) training script |
-| `finetune_lora.py` | LoRA fine-tuning script (r=4, r=8, r=16) |
-| `finetune_freeze.py` | Layer freezing helper |
-| `model.py` | GPT-2 model (nanoGPT-based) |
-| `test_lora_memory_774m.py` | Memory measurement at 774M parameters (RQ2) |
-| `lora_memory_results.json` | Measured adapter sizes (LoRA r=8: 0.78 MB, base model: 89 MB) |
-| `forgetting_test_results.json` | Catastrophic forgetting sanity check results |
+**Shared helpers**
+- `model.py` — the GPT model definition.
+- `data_loader.py` — `get_batch` (random batch from memory-mapped tokens).
+- `validation.py` — `estimate_loss` (mean loss over eval batches).
+- `text_generation.py` — `generate_text` (used by the forgetting check).
 
-## Results
+**Result files**
+- `lora_memory_results.json`, `forgetting_test_results.json` — recorded outputs
+  backing the numbers below.
 
-| Method | Adapter size | 100 tenants total | Val loss | vs baseline |
-|---|---|---|---|---|
-| Full fine-tuning | 189 MB | 18.99 GB | 9.36 | 69% worse |
-| Layer freezing (75%) | 85 MB | 8.59 GB | 7.43 | 34% worse |
-| LoRA r=8 | 0.78 MB | 167 MB | 6.43 | 16% worse |
-| Base model (shared) | 89 MB | — | 5.54 | baseline |
+## Headline numbers
 
-At 774M parameters, LoRA remains 17× more memory-efficient than layer freezing.
+- LoRA adapter: 0.78 MB at 30M, 16.25 MB at 774M.
+- Total-deployment (100 tenants): LoRA ~44.7x smaller than layer freezing and
+  ~98.5x smaller than full fine-tuning at 30M; ~17x vs layer freezing at 774M.
+- Per-tenant (30M): ~109x less than layer freezing, ~242x less than full
+  fine-tuning.
+- Full-FT delta at 774M: ~338.1 GB for 100 tenants.
+- Measurement-method check: 188.4 MB expected vs 189.0 MB measured (~0.3%).
 
-## Dataset
+## Running
 
-- Training: Chicago Q&A dataset
-- Validation: OpenWebText
-- Catastrophic forgetting test: 10 general knowledge questions (2/10 correct before and after LoRA)
+```
+# validate the measurement method, then measure LoRA at 774M
+python validate_measurement_v2.py
+python test_lora_memory_774m.py
+```
+
+The fine-tuning scripts (`finetune_lora.py`, `finetune_freeze.py`) and the
+forgetting check expect a base checkpoint and a tokenized dataset; paths may
+need adjusting to your environment. `finetune_lora.py` requires `peft`.
+
+> Note: the base model, datasets, and checkpoints are not stored here. The
+> data-preparation scripts and the trained checkpoints live outside the
+> repository (see the root README).
