@@ -1,5 +1,6 @@
 import torch, argparse, time, numpy as np, sys
-sys.path.insert(0, '/home/coder/project/src')
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model import GPT, GPTConfig
 from layer_freezing import freeze_bottom_layers, print_freeze_summary
 
